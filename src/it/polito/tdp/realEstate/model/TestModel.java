@@ -10,7 +10,24 @@ public class TestModel {
 		
 //		System.out.println(model.getZoneIdMap());
 		
+//
+//		long startTime = System.nanoTime();
+//		System.out.println(model.getElencoPerCarattristica("AVG(p.Zillow_Estimate)", "DESC"));
+//		long endTime = System.nanoTime();
+//		System.out.println(endTime-startTime);
+		
+//		long startTime = System.nanoTime();
+//		System.out.println(model.getZonaMigliorePerCaratteristica("Valore di mercato medio"));
+//		long endTime = System.nanoTime();
+//		System.out.println(endTime-startTime);
+		
+
 		long startTime = System.nanoTime();
+		System.out.println(model.gestioneFiltri(19138, "Townhouse", null, null, null, null, 50, 30, 11, 61, 87));
+		long endTime = System.nanoTime();
+		System.out.println("t: "+(endTime-startTime));
+		
+//		long startTime = System.nanoTime();
 //		List<Float> budgetList = model.gestioneFiltri(19104, null, 
 //				null, null, null, null,
 //				10, 20, 30, 40, 50,

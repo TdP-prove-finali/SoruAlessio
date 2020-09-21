@@ -364,6 +364,7 @@ public class Model {
 			Immobile immobileVoluto){ 
 		
 
+		this.timeout=false;
 		this.budgetMin = budgetScelto-maxSforoBudget;
 		this.budgetMax = budgetScelto+maxSforoBudget;
 		if(this.budgetMin<0)
