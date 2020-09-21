@@ -1,0 +1,911 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.Group?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.ComboBox?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.Separator?>
+<?import javafx.scene.control.Slider?>
+<?import javafx.scene.control.TextArea?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.BorderPane?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.shape.Line?>
+<?import javafx.scene.text.Font?>
+<?import javafx.scene.text.Text?>
+
+<BorderPane id="borderpane" prefHeight="1001.0" prefWidth="904.0" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="it.polito.tdp.realEstate.RealEstateController">
+   <center>
+      <VBox prefHeight="200.0" prefWidth="100.0" BorderPane.alignment="CENTER">
+         <children>
+            <Line endX="768.2929077148438" endY="7.706880569458008E-5" startX="-100.0" stroke="#697086" />
+            <HBox prefHeight="100.0" prefWidth="200.0">
+               <children>
+                  <VBox prefHeight="90.0" prefWidth="629.0">
+                     <children>
+                        <Group>
+                           <children>
+                              <HBox prefHeight="34.0" prefWidth="544.0">
+                                 <children>
+                                    <VBox prefHeight="200.0" prefWidth="100.0">
+                                       <children>
+                                          <Text strokeType="OUTSIDE" strokeWidth="0.0" text="PANORAMICA DEL CONTESTO IMMOBILIARE A PHILADELPHIA" wrappingWidth="420.841796875">
+                                             <font>
+                                                <Font name="System Bold" size="14.0" />
+                                             </font>
+                                             <VBox.margin>
+                                                <Insets top="10.0" />
+                                             </VBox.margin>
+                                          </Text>
+                                          <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Esamina i valori delle principali caratteristiche immobiliari nelle varie zone di Philadelphia" wrappingWidth="513.841796875">
+                                             <VBox.margin>
+                                                <Insets bottom="5.0" left="15.0" right="5.0" top="5.0" />
+                                             </VBox.margin>
+                                             <font>
+                                                <Font size="13.0" />
+                                             </font>
+                                          </Text>
+                                       </children>
+                                    </VBox>
+                                 </children>
+                              </HBox>
+                           </children>
+                        </Group>
+                        <HBox fx:id="boxSceltaAnalisi" prefHeight="38.0" prefWidth="667.0" spacing="15.0">
+                           <children>
+                              <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Seleziona la " textAlignment="JUSTIFY" wrappingWidth="73.841796875">
+                                 <font>
+                                    <Font size="13.0" />
+                                 </font>
+                                 <HBox.margin>
+                                    <Insets bottom="5.0" left="5.0" top="5.0" />
+                                 </HBox.margin>
+                              </Text>
+                              <Text strokeType="OUTSIDE" strokeWidth="0.0" text="caratteristica " textAlignment="JUSTIFY" wrappingWidth="83.841796875">
+                                 <font>
+                                    <Font name="System Bold" size="13.0" />
+                                 </font>
+                                 <HBox.margin>
+                                    <Insets bottom="5.0" left="-16.0" top="5.0" />
+                                 </HBox.margin>
+                              </Text>
+                              <Text strokeType="OUTSIDE" strokeWidth="0.0" text="che desideri analizzare:" textAlignment="JUSTIFY" wrappingWidth="134.841796875">
+                                 <font>
+                                    <Font size="13.0" />
+                                 </font>
+                                 <HBox.margin>
+                                    <Insets left="-16.0" top="5.0" />
+                                 </HBox.margin>
+                              </Text>
+                              <ComboBox fx:id="comboBoxCaratteristica" prefHeight="25.0" prefWidth="205.0" />
+                              <Button fx:id="btnAbilitaAnalisi" mnemonicParsing="false" onAction="#doAbilitaAnalisi" prefHeight="25.0" prefWidth="154.0" text="Abilita l'analisi" />
+                           </children>
+                           <padding>
+                              <Insets bottom="5.0" left="5.0" right="5.0" top="5.0" />
+                           </padding>
+                           <VBox.margin>
+                              <Insets left="25.0" />
+                           </VBox.margin>
+                        </HBox>
+                     </children>
+                  </VBox>
+                  <ImageView fitHeight="94.0" fitWidth="170.0">
+                     <image>
+                        <Image url="@../../../../../../../../Prova%20finale/pngfuel.com.png" />
+                     </image>
+                     <HBox.margin>
+                        <Insets left="55.0" />
+                     </HBox.margin>
+                  </ImageView>
+               </children>
+            </HBox>
+            <Text fx:id="txtAbilita" strokeType="OUTSIDE" strokeWidth="0.0" text="Finchè non avrai selezionato una caratteristica e premuto il pulsante abilita, le funzionalità di analisi del programma non saranno abilitate" wrappingWidth="785.1259765625">
+               <VBox.margin>
+                  <Insets left="15.0" right="5.0" />
+               </VBox.margin>
+               <font>
+                  <Font size="13.0" />
+               </font>
+            </Text>
+            <HBox fx:id="boxAnalisi" disable="true" prefHeight="225.0" prefWidth="914.0">
+               <children>
+                  <VBox prefHeight="223.0" prefWidth="511.0">
+                     <children>
+                        <HBox prefHeight="25.0" prefWidth="501.0" spacing="15.0">
+                           <children>
+                              <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Ottieni l'elenco delle zone ordinate tramite parametri selezionati" wrappingWidth="368.841796875">
+                                 <font>
+                                    <Font size="13.0" />
+                                 </font>
+                                 <HBox.margin>
+                                    <Insets top="5.0" />
+                                 </HBox.margin>
+                              </Text>
+                              <Button fx:id="btnElencoZonaCaratt" mnemonicParsing="false" onAction="#doTrovaElencoCaratt" prefHeight="0.0" prefWidth="77.0" text="Elenco" textAlignment="CENTER">
+                                 <padding>
+                                    <Insets bottom="5.0" left="5.0" right="5.0" top="5.0" />
+                                 </padding>
+                                 <HBox.margin>
+                                    <Insets bottom="5.0" left="5.0" />
+                                 </HBox.margin>
+                              </Button>
+                           </children>
+                           <VBox.margin>
+                              <Insets left="5.0" right="5.0" />
+                           </VBox.margin>
+                           <padding>
+                              <Insets left="5.0" right="5.0" />
+                           </padding>
+                        </HBox>
+                        <ComboBox fx:id="comboBoxOrdineElenco" prefHeight="25.0" prefWidth="451.0" promptText="Decrescente">
+                           <VBox.margin>
+                              <Insets left="20.0" />
+                           </VBox.margin>
+                        </ComboBox>
+                        <TextArea fx:id="txtElenco" editable="false" prefHeight="137.0" prefWidth="451.0">
+                           <VBox.margin>
+                              <Insets left="20.0" right="40.0" />
+                           </VBox.margin>
+                        </TextArea>
+                        <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Per cambiare l'ordine seleziona &quot;crescente/decrescente&quot; e clicca su &quot;Elenco&quot;" wrappingWidth="449.841796875">
+                           <font>
+                              <Font size="13.0" />
+                           </font>
+                           <VBox.margin>
+                              <Insets left="15.0" top="5.0" />
+                           </VBox.margin>
+                        </Text>
+                     </children>
+                  </VBox>
+                  <Separator orientation="VERTICAL" prefHeight="200.0">
+                     <HBox.margin>
+                        <Insets bottom="10.0" top="20.0" />
+                     </HBox.margin>
+                  </Separator>
+                  <VBox prefHeight="225.0" prefWidth="355.0">
+                     <children>
+                        <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Premi &quot; Trova &quot; per ottenere la zona migliore e peggiore in base ai parametri selezionati" textAlignment="CENTER" wrappingWidth="260.841796875">
+                           <font>
+                              <Font size="13.0" />
+                           </font>
+                           <VBox.margin>
+                              <Insets left="30.0" right="10.0" />
+                           </VBox.margin>
+                        </Text>
+                        <Button fx:id="btnTrovaZonaCaratt" alignment="CENTER" mnemonicParsing="false" onAction="#doTrovaZonaCaratt" prefHeight="27.0" prefWidth="96.0" text="Trova" textAlignment="CENTER">
+                           <padding>
+                              <Insets bottom="5.0" left="5.0" right="5.0" top="5.0" />
+                           </padding>
+                           <VBox.margin>
+                              <Insets left="110.0" right="10.0" top="5.0" />
+                           </VBox.margin>
+                        </Button>
+                        <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Zona migliore: " textAlignment="CENTER" wrappingWidth="328.841796875">
+                           <font>
+                              <Font size="14.0" />
+                           </font>
+                           <VBox.margin>
+                              <Insets right="5.0" top="5.0" />
+                           </VBox.margin>
+                        </Text>
+                        <Text fx:id="txtZonaAlto" strokeType="OUTSIDE" strokeWidth="0.0" text="~" textAlignment="CENTER" wrappingWidth="329.841796875">
+                           <font>
+                              <Font name="System Bold" size="18.0" />
+                           </font>
+                           <VBox.margin>
+                              <Insets right="5.0" />
+                           </VBox.margin>
+                        </Text>
+                        <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Zona peggiore: " textAlignment="CENTER" wrappingWidth="329.841796875">
+                           <font>
+                              <Font size="14.0" />
+                           </font>
+                           <VBox.margin>
+                              <Insets right="5.0" top="5.0" />
+                           </VBox.margin>
+                        </Text>
+                        <Text fx:id="txtZonaBasso" strokeType="OUTSIDE" strokeWidth="0.0" text="~" textAlignment="CENTER" wrappingWidth="329.841796875">
+                           <font>
+                              <Font name="System Bold" size="18.0" />
+                           </font>
+                           <VBox.margin>
+                              <Insets bottom="15.0" right="5.0" />
+                           </VBox.margin>
+                        </Text>
+                        <Separator prefWidth="200.0" />
+                        <HBox prefHeight="15.0" prefWidth="335.0">
+                           <children>
+                              <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Seleziona un'altra caratteristica  -&gt;" textAlignment="CENTER" wrappingWidth="200.841796875">
+                                 <font>
+                                    <Font size="13.0" />
+                                 </font>
+                                 <HBox.margin>
+                                    <Insets top="6.0" />
+                                 </HBox.margin>
+                              </Text>
+                              <Button fx:id="btnAbilitaNuovaAnalisi" mnemonicParsing="false" onAction="#doAbilitaNuovaAnalisi" text="Abilita nuova analisi">
+                                 <HBox.margin>
+                                    <Insets left="10.0" top="4.0" />
+                                 </HBox.margin>
+                              </Button>
+                           </children>
+                           <VBox.margin>
+                              <Insets bottom="5.0" />
+                           </VBox.margin>
+                        </HBox>
+                     </children>
+                     <HBox.margin>
+                        <Insets right="10.0" />
+                     </HBox.margin>
+                     <padding>
+                        <Insets left="10.0" right="10.0" top="10.0" />
+                     </padding>
+                  </VBox>
+               </children>
+            </HBox>
+            <Line endX="768.2929077148438" endY="7.706880569458008E-5" startX="-100.0" stroke="#697086" strokeWidth="0.5" />
+            <HBox prefHeight="0.0" prefWidth="868.0">
+               <children>
+                  <VBox prefHeight="200.0" prefWidth="500.0">
+                     <children>
+                        <Text strokeType="OUTSIDE" strokeWidth="0.0" text="GENERA IN AUTOMATICO IL TUO PORTAFOGLIO IMMOBILIARE !" wrappingWidth="694.841796875">
+                           <font>
+                              <Font name="System Bold" size="14.0" />
+                           </font>
+                           <VBox.margin>
+                              <Insets top="5.0" />
+                           </VBox.margin>
+                        </Text>
+                        <HBox prefHeight="100.0" prefWidth="200.0">
+                           <children>
+                              <VBox prefHeight="54.0" prefWidth="717.0">
+                                 <children>
+                                    <Text fill="#834214" strokeType="OUTSIDE" strokeWidth="0.0" text="Il sogno di ogni immobiliarista di Philadelphia si sta per realizzare !" textAlignment="CENTER" wrappingWidth="617.841796875">
+                                       <font>
+                                          <Font name="Segoe UI Bold" size="15.0" />
+                                       </font>
+                                       <VBox.margin>
+                                          <Insets />
+                                       </VBox.margin>
+                                    </Text>
+                                    <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Philly Real Estate ti consiglia un elenco di immobili da acquistare personalizzato in base alle tue esigenze!" textAlignment="CENTER" wrappingWidth="692.841796875">
+                                       <font>
+                                          <Font name="Segoe UI Bold" size="14.0" />
+                                       </font>
+                                       <VBox.margin>
+                                          <Insets top="5.0" />
+                                       </VBox.margin>
+                                    </Text>
+                                    <HBox prefHeight="100.0" prefWidth="200.0">
+                                       <children>
+                                          <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Imposta i filtri e seleziona attentamente tutte le possibili opzioni. Alla fine premi " textAlignment="CENTER" wrappingWidth="461.841796875">
+                                             <font>
+                                                <Font size="13.0" />
+                                             </font>
+                                          </Text>
+                                          <Text strokeType="OUTSIDE" strokeWidth="0.0" text="cerca" wrappingWidth="33.126953125">
+                                             <font>
+                                                <Font name="System Bold Italic" size="13.0" />
+                                             </font>
+                                          </Text>
+                                          <Text strokeType="OUTSIDE" strokeWidth="0.0" text="per ottenere il tuo listino" wrappingWidth="150.126953125">
+                                             <font>
+                                                <Font size="13.0" />
+                                             </font>
+                                          </Text>
+                                       </children>
+                                       <VBox.margin>
+                                          <Insets bottom="5.0" />
+                                       </VBox.margin>
+                                    </HBox>
+                                 </children>
+                                 <HBox.margin>
+                                    <Insets top="5.0" />
+                                 </HBox.margin>
+                              </VBox>
+                           </children>
+                        </HBox>
+                     </children>
+                  </VBox>
+                  <ImageView fitHeight="90.0" fitWidth="135.0">
+                     <image>
+                        <Image url="@../../../../../../../../Prova%20finale/pngcasa.png" />
+                     </image>
+                     <HBox.margin>
+                        <Insets left="54.0" top="5.0" />
+                     </HBox.margin>
+                  </ImageView>
+               </children>
+            </HBox>
+            <Separator prefWidth="180.0" />
+            <HBox prefHeight="443.0" prefWidth="914.0">
+               <children>
+                  <VBox prefHeight="391.0" prefWidth="892.0">
+                     <children>
+                        <HBox prefHeight="448.0" prefWidth="914.0">
+                           <children>
+                              <VBox prefHeight="337.0" prefWidth="425.0">
+                                 <children>
+                                    <HBox prefHeight="24.0" prefWidth="425.0">
+                                       <children>
+                                          <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Imposta i " wrappingWidth="61.126953125">
+                                             <font>
+                                                <Font size="14.0" />
+                                             </font>
+                                          </Text>
+                                          <Text strokeType="OUTSIDE" strokeWidth="0.0" text="filtri" wrappingWidth="32.126953125">
+                                             <font>
+                                                <Font name="System Bold Italic" size="14.0" />
+                                             </font>
+                                          </Text>
+                                          <Text strokeType="OUTSIDE" strokeWidth="0.0" text="per una ricerca in linea con le tue preferenze" wrappingWidth="283.126953125">
+                                             <font>
+                                                <Font size="14.0" />
+                                             </font>
+                                          </Text>
+                                       </children>
+                                       <VBox.margin>
+                                          <Insets left="10.0" top="5.0" />
+                                       </VBox.margin>
+                                    </HBox>
+                                    <HBox prefHeight="24.0" prefWidth="425.0">
+                                       <children>
+                                          <Text strokeType="OUTSIDE" strokeWidth="0.0" text="I primi 4 parametri " wrappingWidth="110.126953125">
+                                             <font>
+                                                <Font size="13.0" />
+                                             </font>
+                                          </Text>
+                                          <Text strokeType="OUTSIDE" strokeWidth="0.0" text="(zona, tipo, superficie e anno)" wrappingWidth="181.126953125">
+                                             <font>
+                                                <Font name="System Bold Italic" size="13.0" />
+                                             </font>
+                                          </Text>
+                                          <Text strokeType="OUTSIDE" strokeWidth="0.0" text=" sono" wrappingWidth="33.126953125">
+                                             <font>
+                                                <Font size="13.0" />
+                                             </font>
+                                          </Text>
+                                          <Text strokeType="OUTSIDE" strokeWidth="0.0" text="opzionali." wrappingWidth="62.126953125">
+                                             <font>
+                                                <Font name="System Bold" size="13.0" />
+                                             </font>
+                                          </Text>
+                                       </children>
+                                       <VBox.margin>
+                                          <Insets />
+                                       </VBox.margin>
+                                    </HBox>
+                                    <HBox prefHeight="12.0" prefWidth="415.0">
+                                       <children>
+                                          <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Ti" wrappingWidth="14.126953125">
+                                             <font>
+                                                <Font size="13.0" />
+                                             </font>
+                                          </Text>
+                                          <Text strokeType="OUTSIDE" strokeWidth="0.0" text="consigliamo" wrappingWidth="75.126953125">
+                                             <font>
+                                                <Font name="System Bold Italic" size="13.0" />
+                                             </font>
+                                             <HBox.margin>
+                                                <Insets />
+                                             </HBox.margin>
+                                          </Text>
+                                          <Text strokeType="OUTSIDE" strokeWidth="0.0" text=" all'inizio di non selezionarli tutti" wrappingWidth="198.126953125">
+                                             <font>
+                                                <Font size="13.0" />
+                                             </font>
+                                          </Text>
+                                       </children>
+                                       <VBox.margin>
+                                          <Insets left="10.0" top="5.0" />
+                                       </VBox.margin>
+                                    </HBox>
+                                    <HBox prefHeight="10.0" prefWidth="425.0">
+                                       <children>
+                                          <Text strokeType="OUTSIDE" strokeWidth="0.0" text="ed eventualmente di farlo solo in caso di necessità." wrappingWidth="297.126953125">
+                                             <font>
+                                                <Font size="13.0" />
+                                             </font>
+                                             <HBox.margin>
+                                                <Insets left="30.0" />
+                                             </HBox.margin>
+                                          </Text>
+                                       </children>
+                                       <VBox.margin>
+                                          <Insets bottom="5.0" />
+                                       </VBox.margin>
+                                    </HBox>
+                                    <HBox prefHeight="28.0" prefWidth="434.0">
+                                       <children>
+                                          <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Zona : ">
+                                             <HBox.margin>
+                                                <Insets left="10.0" right="5.0" top="5.0" />
+                                             </HBox.margin>
+                                          </Text>
+                                          <ComboBox fx:id="comboBoxZonaPortaffoglio" prefHeight="25.0" prefWidth="213.0">
+                                             <HBox.margin>
+                                                <Insets left="5.0" />
+                                             </HBox.margin>
+                                          </ComboBox>
+                                       </children>
+                                       <VBox.margin>
+                                          <Insets bottom="5.0" top="5.0" />
+                                       </VBox.margin>
+                                    </HBox>
+                                    <HBox prefHeight="28.0" prefWidth="434.0">
+                                       <children>
+                                          <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Tipologia di immobile :">
+                                             <HBox.margin>
+                                                <Insets left="10.0" right="5.0" top="5.0" />
+                                             </HBox.margin></Text>
+                                          <ComboBox fx:id="comboBoxTipoImmobile" prefHeight="25.0" prefWidth="213.0">
+                                             <HBox.margin>
+                                                <Insets left="5.0" />
+                                             </HBox.margin></ComboBox>
+                                       </children>
+                                       <VBox.margin>
+                                          <Insets bottom="5.0" top="5.0" />
+                                       </VBox.margin>
+                                    </HBox>
+                                    <HBox prefHeight="28.0" prefWidth="434.0">
+                                       <children>
+                                          <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Superficie :">
+                                             <HBox.margin>
+                                                <Insets top="5.0" />
+                                             </HBox.margin></Text>
+                                          <Text strokeType="OUTSIDE" strokeWidth="0.0" text="mq  da">
+                                             <HBox.margin>
+                                                <Insets left="15.0" right="5.0" top="5.0" />
+                                             </HBox.margin>
+                                          </Text>
+                                          <ComboBox fx:id="comboBoxMinMq" prefHeight="25.0" prefWidth="110.0">
+                                             <HBox.margin>
+                                                <Insets left="5.0" right="5.0" />
+                                             </HBox.margin></ComboBox>
+                                          <Text strokeType="OUTSIDE" strokeWidth="0.0" text="a">
+                                             <HBox.margin>
+                                                <Insets left="10.0" right="5.0" top="5.0" />
+                                             </HBox.margin></Text>
+                                          <ComboBox fx:id="comboBoxMaxMq" prefHeight="25.0" prefWidth="110.0">
+                                             <HBox.margin>
+                                                <Insets left="5.0" />
+                                             </HBox.margin></ComboBox>
+                                       </children>
+                                       <VBox.margin>
+                                          <Insets bottom="5.0" left="10.0" top="5.0" />
+                                       </VBox.margin>
+                                    </HBox>
+                                    <HBox prefHeight="28.0" prefWidth="434.0">
+                                       <children>
+                                          <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Anno di costruzione : ">
+                                             <HBox.margin>
+                                                <Insets top="5.0" />
+                                             </HBox.margin></Text>
+                                          <Text strokeType="OUTSIDE" strokeWidth="0.0" text="da">
+                                             <HBox.margin>
+                                                <Insets left="15.0" right="5.0" top="5.0" />
+                                             </HBox.margin>
+                                          </Text>
+                                          <ComboBox fx:id="comboBoxMinYear" prefHeight="25.0" prefWidth="90.0">
+                                             <HBox.margin>
+                                                <Insets left="5.0" right="5.0" />
+                                             </HBox.margin>
+                                          </ComboBox>
+                                          <Text strokeType="OUTSIDE" strokeWidth="0.0" text="a">
+                                             <HBox.margin>
+                                                <Insets left="5.0" right="5.0" />
+                                             </HBox.margin>
+                                          </Text>
+                                          <ComboBox fx:id="comboBoxMaxYear" prefHeight="25.0" prefWidth="90.0">
+                                             <HBox.margin>
+                                                <Insets left="5.0" right="5.0" />
+                                             </HBox.margin>
+                                          </ComboBox>
+                                       </children>
+                                       <VBox.margin>
+                                          <Insets bottom="5.0" left="10.0" top="5.0" />
+                                       </VBox.margin>
+                                    </HBox>
+                                    <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Ricorda che selezionando molti filtri riduci il range di scelta, riducendo il numero di immobili adatti al tuo portafoglio" textAlignment="JUSTIFY" wrappingWidth="394.841796875">
+                                       <font>
+                                          <Font size="13.0" />
+                                       </font>
+                                       <VBox.margin>
+                                          <Insets top="5.0" />
+                                       </VBox.margin>
+                                    </Text>
+                                    <Separator prefWidth="200.0">
+                                       <VBox.margin>
+                                          <Insets bottom="5.0" top="5.0" />
+                                       </VBox.margin>
+                                    </Separator>
+                                    <HBox prefHeight="24.0" prefWidth="425.0">
+                                       <children>
+                                          <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Desideri un portafoglio orientato sulla" wrappingWidth="222.126953125">
+                                             <font>
+                                                <Font size="13.0" />
+                                             </font>
+                                             <HBox.margin>
+                                                <Insets />
+                                             </HBox.margin>
+                                          </Text>
+                                          <Text strokeType="OUTSIDE" strokeWidth="0.0" text="qualità" wrappingWidth="47.126953125">
+                                             <font>
+                                                <Font name="System Bold Italic" size="13.0" />
+                                             </font>
+                                          </Text>
+                                          <Text strokeType="OUTSIDE" strokeWidth="0.0" text="o sulla" wrappingWidth="40.126953125">
+                                             <font>
+                                                <Font size="13.0" />
+                                             </font>
+                                          </Text>
+                                          <Text strokeType="OUTSIDE" strokeWidth="0.0" text="quantità" wrappingWidth="53.126953125">
+                                             <font>
+                                                <Font name="System Bold Italic" size="13.0" />
+                                             </font>
+                                          </Text>
+                                          <Text strokeType="OUTSIDE" strokeWidth="0.0" text="?">
+                                             <font>
+                                                <Font size="13.0" />
+                                             </font>
+                                          </Text>
+                                       </children>
+                                       <VBox.margin>
+                                          <Insets top="5.0" />
+                                       </VBox.margin>
+                                    </HBox>
+                                    <HBox prefHeight="24.0" prefWidth="425.0">
+                                       <children>
+                                          <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Selezionalo" wrappingWidth="73.126953125">
+                                             <font>
+                                                <Font name="System Bold Italic" size="13.0" />
+                                             </font>
+                                             <HBox.margin>
+                                                <Insets top="5.0" />
+                                             </HBox.margin>
+                                          </Text>
+                                          <Text strokeType="OUTSIDE" strokeWidth="0.0" text="nel box affianco e premi" wrappingWidth="143.126953125">
+                                             <font>
+                                                <Font size="13.0" />
+                                             </font>
+                                             <HBox.margin>
+                                                <Insets top="5.0" />
+                                             </HBox.margin>
+                                          </Text>
+                                          <Text strokeType="OUTSIDE" strokeWidth="0.0" text="invia" wrappingWidth="36.126953125">
+                                             <font>
+                                                <Font name="System Bold Italic" size="13.0" />
+                                             </font>
+                                             <HBox.margin>
+                                                <Insets top="5.0" />
+                                             </HBox.margin>
+                                          </Text>
+                                          <ComboBox fx:id="comboBoxQualQuan" prefWidth="150.0" />
+                                       </children>
+                                       <VBox.margin>
+                                          <Insets top="5.0" />
+                                       </VBox.margin>
+                                    </HBox>
+                                    <HBox prefHeight="37.0" prefWidth="395.0">
+                                       <children>
+                                          <Button fx:id="btnInvia" alignment="CENTER" contentDisplay="CENTER" mnemonicParsing="false" onAction="#doGestioneFiltri" prefHeight="27.0" prefWidth="83.0" text="Invia !" textAlignment="CENTER">
+                                             <font>
+                                                <Font name="Segoe UI Bold" size="13.0" />
+                                             </font>
+                                             <HBox.margin>
+                                                <Insets bottom="5.0" left="150.0" top="5.0" />
+                                             </HBox.margin>
+                                          </Button>
+                                       </children>
+                                    </HBox>
+                                    <Separator prefWidth="200.0" />
+                                    <HBox prefHeight="100.0" prefWidth="200.0">
+                                       <children>
+                                          <Text fx:id="mexApp" strokeType="OUTSIDE" strokeWidth="0.0" text="Messaggi inviati dall'applicazione:  ..." textAlignment="JUSTIFY" wrappingWidth="392.841796875">
+                                             <font>
+                                                <Font size="13.0" />
+                                             </font>
+                                             <HBox.margin>
+                                                <Insets top="5.0" />
+                                             </HBox.margin>
+                                          </Text>
+                                       </children>
+                                    </HBox>
+                                 </children>
+                                 <HBox.margin>
+                                    <Insets />
+                                 </HBox.margin>
+                              </VBox>
+                              <Separator orientation="VERTICAL" prefHeight="200.0">
+                                 <HBox.margin>
+                                    <Insets left="10.0" right="10.0" />
+                                 </HBox.margin>
+                              </Separator>
+                              <VBox prefHeight="428.0" prefWidth="463.0">
+                                 <children>
+                                    <HBox prefHeight="10.0" prefWidth="443.0">
+                                       <children>
+                                          <Text disable="true" strokeType="OUTSIDE" strokeWidth="0.0" text="Se puoi scegliere i pesi significa che hai selezionato" textAlignment="JUSTIFY" wrappingWidth="296.841796875">
+                                             <font>
+                                                <Font size="13.0" />
+                                             </font>
+                                          </Text>
+                                          <Text disable="true" strokeType="OUTSIDE" strokeWidth="0.0" text="qualità !" wrappingWidth="55.126953125">
+                                             <font>
+                                                <Font name="System Bold Italic" size="13.0" />
+                                             </font>
+                                          </Text>
+                                          <Text disable="true" strokeType="OUTSIDE" strokeWidth="0.0" text="Mancano solo" textAlignment="JUSTIFY" wrappingWidth="80.841796875">
+                                             <font>
+                                                <Font size="13.0" />
+                                             </font>
+                                          </Text>
+                                       </children>
+                                       <VBox.margin>
+                                          <Insets left="5.0" top="5.0" />
+                                       </VBox.margin>
+                                    </HBox>
+                                    <Text disable="true" strokeType="OUTSIDE" strokeWidth="0.0" text="le ultime impostazioni prima di poter ottenere il tuo portafoglio immobiliare !" textAlignment="JUSTIFY" wrappingWidth="452.841796875">
+                                       <font>
+                                          <Font size="13.0" />
+                                       </font>
+                                       <VBox.margin>
+                                          <Insets left="10.0" />
+                                       </VBox.margin>
+                                    </Text>
+                                    <HBox prefHeight="16.0" prefWidth="463.0">
+                                       <children>
+                                          <Text disable="true" strokeType="OUTSIDE" strokeWidth="0.0" text="Indica il " textAlignment="JUSTIFY" wrappingWidth="48.841796875">
+                                             <font>
+                                                <Font size="13.0" />
+                                             </font>
+                                          </Text>
+                                          <Text disable="true" strokeType="OUTSIDE" strokeWidth="0.0" text="peso" wrappingWidth="31.126953125">
+                                             <font>
+                                                <Font name="System Bold Italic" size="13.0" />
+                                             </font>
+                                          </Text>
+                                          <Text disable="true" strokeType="OUTSIDE" strokeWidth="0.0" text="che dai alle seguenti caratteristiche di qualità :" textAlignment="JUSTIFY" wrappingWidth="294.841796875">
+                                             <font>
+                                                <Font size="13.0" />
+                                             </font>
+                                          </Text>
+                                       </children>
+                                       <VBox.margin>
+                                          <Insets top="5.0" />
+                                       </VBox.margin>
+                                    </HBox>
+                                    <HBox prefHeight="38.0" prefWidth="433.0">
+                                       <children>
+                                          <Text disable="true" strokeType="OUTSIDE" strokeWidth="0.0" text="Rendimentento stimato dell'affitto mensile" textAlignment="CENTER">
+                                             <HBox.margin>
+                                                <Insets right="5.0" />
+                                             </HBox.margin></Text>
+                                          <Slider fx:id="pesoRent" disable="true">
+                                             <HBox.margin>
+                                                <Insets top="2.0" />
+                                             </HBox.margin></Slider>
+                                       </children>
+                                       <VBox.margin>
+                                          <Insets left="5.0" top="5.0" />
+                                       </VBox.margin>
+                                    </HBox>
+                                    <HBox prefHeight="38.0" prefWidth="433.0">
+                                       <children>
+                                          <Text disable="true" strokeType="OUTSIDE" strokeWidth="0.0" text="Tasso di criminalità">
+                                             <HBox.margin>
+                                                <Insets right="5.0" />
+                                             </HBox.margin></Text>
+                                          <Slider fx:id="pesoCrime" disable="true" prefHeight="14.0" prefWidth="123.0">
+                                             <HBox.margin>
+                                                <Insets top="2.0" />
+                                             </HBox.margin></Slider>
+                                          <Text disable="true" strokeType="OUTSIDE" strokeWidth="0.0" text="Livello scolastico">
+                                             <HBox.margin>
+                                                <Insets left="10.0" right="5.0" />
+                                             </HBox.margin></Text>
+                                          <Slider fx:id="pesoSchool" disable="true" prefHeight="14.0" prefWidth="123.0">
+                                             <HBox.margin>
+                                                <Insets top="2.0" />
+                                             </HBox.margin></Slider>
+                                       </children>
+                                       <VBox.margin>
+                                          <Insets left="5.0" top="5.0" />
+                                       </VBox.margin>
+                                    </HBox>
+                                    <HBox prefHeight="38.0" prefWidth="433.0" />
+                                    <HBox prefHeight="38.0" prefWidth="433.0">
+                                       <children>
+                                          <Text disable="true" strokeType="OUTSIDE" strokeWidth="0.0" text="Anno di costruzione">
+                                             <HBox.margin>
+                                                <Insets right="5.0" />
+                                             </HBox.margin></Text>
+                                          <Slider fx:id="pesoYear" disable="true">
+                                             <HBox.margin>
+                                                <Insets top="2.0" />
+                                             </HBox.margin></Slider>
+                                          <Text disable="true" strokeType="OUTSIDE" strokeWidth="0.0" text="Superficie">
+                                             <HBox.margin>
+                                                <Insets left="10.0" right="5.0" />
+                                             </HBox.margin></Text>
+                                          <Slider fx:id="pesoMq" disable="true" prefHeight="14.0" prefWidth="127.0">
+                                             <HBox.margin>
+                                                <Insets top="2.0" />
+                                             </HBox.margin></Slider>
+                                       </children>
+                                       <VBox.margin>
+                                          <Insets bottom="5.0" left="5.0" top="5.0" />
+                                       </VBox.margin>
+                                    </HBox>
+                                    <HBox prefHeight="100.0" prefWidth="200.0">
+                                       <children>
+                                          <Text disable="true" strokeType="OUTSIDE" strokeWidth="0.0" text="Selezionati i pesi, premi nuovamente invia !" textAlignment="JUSTIFY" wrappingWidth="253.841796875">
+                                             <font>
+                                                <Font size="13.0" />
+                                             </font>
+                                             <HBox.margin>
+                                                <Insets left="70.0" right="20.0" top="3.0" />
+                                             </HBox.margin>
+                                          </Text>
+                                          <Button fx:id="btnInviaQualita" alignment="CENTER" contentDisplay="CENTER" disable="true" mnemonicParsing="false" onAction="#doInviaQual" prefHeight="16.0" prefWidth="83.0" text="Invia !" textAlignment="CENTER">
+                                             <font>
+                                                <Font name="Segoe UI Bold" size="12.0" />
+                                             </font>
+                                             <HBox.margin>
+                                                <Insets left="10.0" />
+                                             </HBox.margin>
+                                          </Button>
+                                       </children>
+                                       <VBox.margin>
+                                          <Insets top="5.0" />
+                                       </VBox.margin>
+                                    </HBox>
+                                    <Separator disable="true" prefWidth="200.0">
+                                       <VBox.margin>
+                                          <Insets top="5.0" />
+                                       </VBox.margin>
+                                    </Separator>
+                                    <Text disable="true" strokeType="OUTSIDE" strokeWidth="0.0" text="Se desideri inserire un immobile che non può assolutamente mancare">
+                                       <font>
+                                          <Font size="13.0" />
+                                       </font>
+                                       <VBox.margin>
+                                          <Insets left="5.0" />
+                                       </VBox.margin>
+                                    </Text>
+                                    <HBox prefHeight="28.0" prefWidth="434.0">
+                                       <VBox.margin>
+                                          <Insets left="10.0" />
+                                       </VBox.margin>
+                                       <children>
+                                          <Text disable="true" strokeType="OUTSIDE" strokeWidth="0.0" text="nella tua lista, selezionalo qui: ">
+                                             <HBox.margin>
+                                                <Insets top="5.0" />
+                                             </HBox.margin>
+                                             <font>
+                                                <Font size="13.0" />
+                                             </font>
+                                          </Text>
+                                          <Text disable="true" strokeType="OUTSIDE" strokeWidth="0.0">
+                                             <font>
+                                                <Font size="13.0" />
+                                             </font>
+                                             <HBox.margin>
+                                                <Insets left="5.0" top="5.0" />
+                                             </HBox.margin>
+                                          </Text>
+                                          <ComboBox fx:id="comboBoxVoluto" disable="true" prefHeight="25.0" prefWidth="249.0" />
+                                       </children>
+                                    </HBox>
+                                    <HBox prefHeight="9.0" prefWidth="463.0">
+                                       <children>
+                                          <Text disable="true" strokeType="OUTSIDE" strokeWidth="0.0" text="Seleziona il" textAlignment="JUSTIFY" wrappingWidth="67.841796875">
+                                             <font>
+                                                <Font size="13.0" />
+                                             </font>
+                                          </Text>
+                                          <Text disable="true" strokeType="OUTSIDE" strokeWidth="0.0" text="budget" wrappingWidth="49.126953125">
+                                             <font>
+                                                <Font name="System Bold Italic" size="13.0" />
+                                             </font>
+                                          </Text>
+                                          <Text disable="true" strokeType="OUTSIDE" strokeWidth="0.0" text="( la spesa potrà essere superiore/inferiore di" textAlignment="JUSTIFY" wrappingWidth="253.841796875">
+                                             <font>
+                                                <Font size="13.0" />
+                                             </font>
+                                          </Text>
+                                          <Text fx:id="sforo" disable="true" strokeType="OUTSIDE" strokeWidth="0.0" text="sforo" textAlignment="CENTER" wrappingWidth="89.126953125">
+                                             <font>
+                                                <Font name="System Bold Italic" size="13.0" />
+                                             </font>
+                                          </Text>
+                                          <Text disable="true" strokeType="OUTSIDE" strokeWidth="0.0" text=")" textAlignment="JUSTIFY" wrappingWidth="1.0">
+                                             <font>
+                                                <Font size="13.0" />
+                                             </font>
+                                          </Text>
+                                       </children>
+                                       <VBox.margin>
+                                          <Insets top="5.0" />
+                                       </VBox.margin>
+                                    </HBox>
+                                    <HBox prefHeight="33.0" prefWidth="418.0">
+                                       <children>
+                                          <Text disable="true" strokeType="OUTSIDE" strokeWidth="0.0" text="Budget :   $" wrappingWidth="61.126953125">
+                                             <HBox.margin>
+                                                <Insets top="7.5" />
+                                             </HBox.margin></Text>
+                                          <ComboBox fx:id="comboBoxBudget" disable="true" prefHeight="25.0" prefWidth="130.0">
+                                             <HBox.margin>
+                                                <Insets left="7.0" top="5.0" />
+                                             </HBox.margin></ComboBox>
+                                          <Text disable="true" strokeType="OUTSIDE" strokeWidth="0.0" text="Cerca il tuo portafoglio !" textAlignment="JUSTIFY" wrappingWidth="148.841796875">
+                                             <font>
+                                                <Font size="13.0" />
+                                             </font>
+                                             <HBox.margin>
+                                                <Insets left="15.0" top="7.5" />
+                                             </HBox.margin>
+                                          </Text>
+                                          <Button fx:id="btnCerca" alignment="CENTER" contentDisplay="CENTER" disable="true" mnemonicParsing="false" onAction="#doCercaPortafoglio" prefHeight="27.0" prefWidth="83.0" text="Cerca !" textAlignment="CENTER">
+                                             <font>
+                                                <Font name="Segoe UI Bold" size="13.0" />
+                                             </font>
+                                             <HBox.margin>
+                                                <Insets bottom="5.0" top="5.0" />
+                                             </HBox.margin>
+                                          </Button>
+                                       </children>
+                                    </HBox>
+                                    <HBox prefHeight="29.0" prefWidth="425.0" />
+                                    <HBox prefHeight="19.0" prefWidth="446.0" />
+                                    <TextArea fx:id="txtRisultatoRicorsione" disable="true" editable="false" prefHeight="238.0" prefWidth="463.0" text="TESTO PORTAFOGLIO O MESSAGGI DI ERRORE" />
+                                    <Button fx:id="btnReset" disable="true" mnemonicParsing="false" onAction="#doReset" prefHeight="25.0" prefWidth="462.0" text="Clicca per RESET" />
+                                 </children>
+                              </VBox>
+                           </children>
+                           <VBox.margin>
+                              <Insets />
+                           </VBox.margin>
+                        </HBox>
+                     </children>
+                     <HBox.margin>
+                        <Insets />
+                     </HBox.margin>
+                  </VBox>
+               </children></HBox>
+         </children>
+         <BorderPane.margin>
+            <Insets bottom="5.0" left="5.0" right="5.0" top="5.0" />
+         </BorderPane.margin>
+         <padding>
+            <Insets bottom="5.0" left="5.0" right="5.0" top="5.0" />
+         </padding>
+      </VBox>
+   </center>
+   <top>
+      <HBox prefHeight="74.0" prefWidth="870.0" BorderPane.alignment="CENTER">
+         <children>
+            <Label alignment="CENTER" prefHeight="80.0" prefWidth="782.0" text="Philly Real Estate" textAlignment="CENTER" textFill="#697086">
+               <padding>
+                  <Insets bottom="10.0" left="10.0" right="10.0" top="10.0" />
+               </padding>
+               <font>
+                  <Font name="Tarantino" size="52.0" />
+               </font>
+            </Label>
+            <ImageView fitHeight="67.0" fitWidth="66.0" pickOnBounds="true" preserveRatio="true" rotate="90.0">
+               <image>
+                  <Image url="@../../../../../../../../Prova%20finale/Flag_map_of_Philadelphia.png" />
+               </image>
+               <HBox.margin>
+                  <Insets left="10.0" top="10.0" />
+               </HBox.margin>
+            </ImageView>
+         </children>
+      </HBox>
+   </top>
+</BorderPane>
