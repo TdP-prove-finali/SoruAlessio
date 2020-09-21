@@ -573,7 +573,7 @@ public class RealEstateController {
         		List<Immobile> portafoglio = model.getPortafoglioImmobiliare(qualita, 
             			this.comboBoxBudget.getValue(), this.maxSforamentoBudget, this.immobileVolutoVar);
             	Collections.sort(portafoglio);
-            	if(portafoglio!=null && !model.isTimeout()) {
+            	if(!portafoglio.isEmpty() && !model.isTimeout()) {
             		this.txtRisultatoRicorsione.clear();
             		this.txtRisultatoRicorsione.appendText(" 	-----      ECCO IL TUO PORTAFOGLIO IMMOBILIARE !      -----\n"+
             		"\nPhilly Real Estate ti consiglia il seguente elenco di immobili:\n\n" );
@@ -597,7 +597,16 @@ public class RealEstateController {
         			this.txtRisultatoRicorsione.appendText("Non è stato generato alcun portafoglio immobiliare\n"+
         					"E' necessario inserire più filtri per evitare un range \ndi immoobili troppo "+
         					"elevato che non permette di ottenere \n una soluzione ottimale in tempi accettabili ");
+            	} else if(portafoglio.isEmpty()){
+            		this.mexApp.setText("Il tuo portafoglio è vuoto ! \n"+
+            				"Potresti aver selezionato un budget troppo basso \n"+
+            			    "Riprova!");
+            			this.mexApp.setFill(Color.RED);
+            			this.txtRisultatoRicorsione.appendText("Il tuo portafoglio è vuoto ! \n"+
+                				"Potresti aver selezionato un budget troppo basso \n"+
+                			    "Riprova!");            		
             	}
+            		
         		
         	} else {
         		this.mexApp.setText("Attenzione: non hai selezionato il BUDGET ! "+

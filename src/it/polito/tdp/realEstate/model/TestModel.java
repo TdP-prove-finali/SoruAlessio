@@ -22,8 +22,9 @@ public class TestModel {
 //		System.out.println(endTime-startTime);
 		
 
+		System.out.println(model.gestioneFiltri(19152, null, null, null, null, null, 50, 30, 11, 61, 87));
 		long startTime = System.nanoTime();
-		System.out.println(model.gestioneFiltri(19138, "Townhouse", null, null, null, null, 50, 30, 11, 61, 87));
+		System.out.println(model.getPortafoglioImmobiliare(false, (float)1890000, 87415, null));
 		long endTime = System.nanoTime();
 		System.out.println("t: "+(endTime-startTime));
 		
