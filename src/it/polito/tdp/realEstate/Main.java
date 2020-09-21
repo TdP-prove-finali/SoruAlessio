@@ -15,7 +15,7 @@ public class Main extends Application {
 	public void start(Stage primaryStage) {
 		try {
 			FXMLLoader loader = new FXMLLoader(getClass().getResource("RealEstate.fxml"));
-BorderPane root = (BorderPane)loader.load();
+BorderPane root = (BorderPane)loader.load(); 
 			
 			RealEstateController controller = loader.getController() ;
 			Model model = new Model() ;
